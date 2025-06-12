@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 from textwrap import wrap
 import warnings
+
 warnings.simplefilter(action='ignore', category=UserWarning)
 
 # Désactiver l'option de réduction de la largeur de l'application
@@ -51,6 +52,9 @@ if choice_ticker == 'Tous':
 
 # Ajouter une option pour choisir si le texte doit être raccourci (wrap)
 wrap_text = st.checkbox("Raccourcir le texte", value=True)
+
+# Ajouter un curseur pour ajuster la taille de la police des légendes
+legend_font_size = st.slider("Taille de la police des légendes", min_value=6, max_value=20, value=10)
 
 # Round the values
 df = df.round(1)
@@ -165,7 +169,7 @@ ax.spines['polar'].set_color('#222222')
 ax.set_facecolor('#FAFAFA')
 
 # Add a legend as well.
-ax.legend(loc='upper right', bbox_to_anchor=(1.9, 1.1))
+ax.legend(loc='upper right', bbox_to_anchor=(1.9, 1.1), prop={'size': legend_font_size})
 
 # Display the plot in Streamlit
 st.pyplot(fig)
