@@ -9,7 +9,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=UserWarning)
 
 # Désactiver l'option de réduction de la largeur de l'application
-st.set_page_config(layout="wide")
+st.set_page_config(layout="centered")
 
 # CSS personnalisé pour forcer l'application à utiliser toute la largeur disponible
 st.markdown(
